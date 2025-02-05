@@ -1,0 +1,12 @@
+body {
+    background-color: #e41111;
+}
+
+h1 {
+    color: #ffffff; 
+}
+
+.img-fluid {
+    border: 5px solid #dc3545;
+    border-radius: 10px;
+}
