@@ -27,4 +27,5 @@ def descargar():
     return send_file("static/placa_generada.png", as_attachment=True)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Usar el puerto asignado por Heroku o por defecto 5000
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
