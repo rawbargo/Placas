@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Generador de Placas</h1>
-        <form method="POST" action="https://placas-cf34adc910a8.herokuapp.com/generar_placa" class="mt-4">
+        <form method="POST" action="/">
             <div class="mb-3">
                 <label for="texto" class="form-label">Ingresa el texto:</label>
                 <textarea class="form-control" id="texto" name="texto" rows="3" required></textarea>
@@ -24,9 +24,9 @@
         {% if imagen_generada %}
             <div class="mt-5 text-center">
                 <h2>Tu placa generada:</h2>
-                <img src="https://placas-cf34adc910a8.herokuapp.com/static/placa_generada.png" alt="Placa generada" class="img-fluid mt-3">
+                <img src="{{ imagen_generada }}" alt="Placa generada" class="img-fluid mt-3">
                 <br>
-                <a href="https://placas-cf34adc910a8.herokuapp.com/descargar" class="btn btn-success mt-3">Descargar Imagen</a>
+                <a href="/descargar" class="btn btn-success mt-3">Descargar Imagen</a>
             </div>
         {% endif %}
     </div>
