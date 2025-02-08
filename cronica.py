@@ -1,7 +1,11 @@
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from PIL import Image, ImageDraw, ImageFont
 import textwrap
+import os
 
-def generar_placa(texto, fondo_path="fondo_placa.png", output_file="placa_cronica.png"):
+# Ruta local de la fuente
+FONT_PATH = "static/oswald.ttf"
+
+def generar_placa(texto, fondo_path="static/fondo_placa.png", output_file="static/placa_cronica.png"):
     # Cargar la imagen de fondo
     try:
         imagen = Image.open(fondo_path)
@@ -36,9 +40,9 @@ def generar_placa(texto, fondo_path="fondo_placa.png", output_file="placa_cronic
     # Ajustar el tamaño de la fuente si el texto es demasiado grande
     while True:
         try:
-            fuente = ImageFont.truetype("arialbd.ttf", tamano_fuente)
+            fuente = ImageFont.truetype(FONT_PATH, tamano_fuente)
         except IOError:
-            print("⚠️ Fuente 'arialbd.ttf' no encontrada. Usando fuente predeterminada.")
+            print("⚠️ No se pudo cargar la fuente personalizada. Usando fuente predeterminada.")
             fuente = ImageFont.load_default()
 
         text_ancho_max, text_alto_total = calcular_tamano_texto(fuente)
@@ -76,5 +80,4 @@ def generar_placa(texto, fondo_path="fondo_placa.png", output_file="placa_cronic
     imagen.save(output_file)
     print(f"✅ Imagen guardada en {output_file}")
 
-# Prueba con un mensaje más largo
-generar_placa("el franco se abre sexualmente en el ano", fondo_path="fondo_placa.png")
+

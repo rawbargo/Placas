@@ -1,5 +1,7 @@
 body {
-    background-color: #e41111;
+    background: linear-gradient(180deg, #e41111, #990000);
+    height: 100vh; /* Para cubrir toda la pantalla */
+    margin: 0;
 }
 
 h1 {
